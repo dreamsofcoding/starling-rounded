@@ -19,6 +19,7 @@ import retrofit2.http.PUT
 import retrofit2.http.Path
 import retrofit2.http.Query
 import java.time.OffsetDateTime
+import java.util.UUID
 
 //Base Url
 private const val BASE_URL = "https://api-sandbox.starlingbank.com/api/v2/"
@@ -111,7 +112,7 @@ interface StarlingService {
     suspend fun putSavingAmount(
         @Path("account") account: String,
         @Path("savings-goal") savingsGoal: String,
-        @Path("transfer") transferUid: String,
+        @Path("transfer") transferUid: String? = UUID.randomUUID().toString(),
         @Body addAmount: SavingsGoalTransferAmount
     ): Response<JsonObject>
 

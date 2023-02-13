@@ -3,9 +3,6 @@ package com.cd.rounded.domain
 import com.cd.rounded.backend.StarlingService
 import com.cd.rounded.tools.AmountUtils
 import com.cd.rounded.tools.DateUtils
-import com.google.gson.Gson
-import com.google.gson.JsonParseException
-import java.util.UUID
 import javax.inject.Inject
 
 class RoundUpRepo @Inject constructor(
@@ -122,8 +119,7 @@ class RoundUpRepo @Inject constructor(
         val response = starlingService.putSavingAmount(
             account = accountUid,
             savingsGoal = savingsGoalUid,
-            transferUid = UUID.randomUUID().toString(),
-            minorUnitRoundUp
+            addAmount = minorUnitRoundUp
         )
 
         return if (response.isSuccessful) {
