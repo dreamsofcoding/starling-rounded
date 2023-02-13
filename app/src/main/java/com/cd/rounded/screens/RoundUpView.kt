@@ -40,13 +40,8 @@ fun RoundUpView(modifier: Modifier = Modifier) {
                 roundUpViewModel.makeTransferToSavingsGoal()
             }
         )
-
         RoundUpViewModel.State.TransferSuccess -> RoundUpTransferComplete(
             returnToRoundUpScreen = { roundUpViewModel.doOnLoad() }
         )
-
-
     }
-
-
 }

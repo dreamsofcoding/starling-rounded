@@ -36,7 +36,7 @@ class RoundUpRepo @Inject constructor(
      * Function that retrieves the transactions for the week specified and returns the response
      * as a List of feed items to the viewmodel.
      * @param accountUid UID of the account being queried
-     * @param categoryUid UID for the category of the transcations
+     * @param categoryUid UID for the category of the transactions
      * @param week int, 0 = current week, 1 = previous week, 2 = 2 weeks ago, etc.
      */
     suspend fun getTransactionsForTheWeek(
