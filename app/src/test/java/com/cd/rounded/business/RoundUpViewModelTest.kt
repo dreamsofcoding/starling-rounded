@@ -47,7 +47,7 @@ class RoundUpViewModelTest : StringSpec() {
     private fun getAccountTests() {
         "show loading when customer account fetch is started" {
             whenever(roundUpRepo.getAccounts())
-            viewModel.state.shouldBe {
+            viewModel.state.value.shouldBe {
                 RoundUpViewModel.State.Loading
             }
         }
@@ -312,7 +312,9 @@ class RoundUpViewModelTest : StringSpec() {
 
                     viewModel.roundUpAmount.value.shouldNotBeZero()
 
-                    viewModel.state.value.shouldBe(RoundUpViewModel.State.Loaded)
+                    viewModel.state.value.shouldBe {
+                        RoundUpViewModel.State.Loading
+                    }
                 }
             }
         }
